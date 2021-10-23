@@ -4,3 +4,52 @@ body,
 html {
   margin: 0;
 }
+
+.list-headings {
+  background-color: rgb(236, 199, 128);
+  display: flex;
+  width: 10rem;
+  height: 2.5rem;
+  justify-content: center;
+  align-items: center;
+  border: 0.1rem solid black;
+}
+
+.lists {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10rem;
+}
+
+#lists-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+#films-container {
+  height: 20rem;
+  border: 0.1rem solid black;
+}
+
+#food-container {
+  height: 20rem;
+  border: 0.1rem solid black;
+}
+
+#books-container {
+  height: 20rem;
+  border: 0.1rem solid black;
+}
+
+#products-container {
+  height: 20rem;
+  border: 0.1rem solid black;
+}
+
+#other-container {
+  height: 20rem;
+  border: 0.1rem solid black;
+}
