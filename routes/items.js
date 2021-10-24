@@ -1,28 +1,17 @@
 const express = require("express");
 const router = express.Router();
+const { getItemsByCategory, getNameByUserId, getCategoryId } = require("../lib/data_helpers");
 
 module.exports = (db) => {
 
-  const getItemsByCategory = (categoryId) => {
-    const queryString = `SELECT * FROM items WHERE category_id = $1 ORDER BY date_added;`;
-    const queryParams = [categoryId];
-    return db.query(queryString, queryParams);
-  }
-
-  const getNameByUserId = (userId) => {
-    const queryString = `SELECT first_name FROM users WHERE id = $1;`;
-    const queryParams = [userId];
-    return db.query(queryString, queryParams);
-  }
-
   router.get("/", (req, res) => {
     Promise.all([
-      getItemsByCategory(1),
-      getItemsByCategory(2),
-      getItemsByCategory(3),
-      getItemsByCategory(4),
-      getItemsByCategory(5),
-      getNameByUserId(req.session.userID)
+      getItemsByCategory(db, 1),
+      getItemsByCategory(db, 2),
+      getItemsByCategory(db, 3),
+      getItemsByCategory(db, 4),
+      getItemsByCategory(db, 5),
+      getNameByUserId(db, req.session.userID)
     ]).then(data => {
       const templateVars = {
         films: data[0].rows,
@@ -36,11 +25,10 @@ module.exports = (db) => {
     });
   })
 
-
   router.post("/", (req, res) => {
     const title = req.body.title;
     const userId = req.session.userID;
-    const categoryId = 5;
+    const categoryId = getCategoryId(title);
     const dateAdded = new Date().toISOString().slice(0, 19).replace('T', ' ');
     const description = req.body.description;
 
@@ -51,7 +39,7 @@ module.exports = (db) => {
       .then(data => {
         res.redirect("/");
       });
-
   })
+
   return router;
 };
