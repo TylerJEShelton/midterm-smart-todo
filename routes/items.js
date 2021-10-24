@@ -5,13 +5,14 @@ const { getItemsByCategory, getNameByUserId, getCategoryId } = require("../lib/d
 module.exports = (db) => {
 
   router.get("/", (req, res) => {
+    const curUserId = req.session.userID;
     Promise.all([
-      getItemsByCategory(db, 1),
-      getItemsByCategory(db, 2),
-      getItemsByCategory(db, 3),
-      getItemsByCategory(db, 4),
-      getItemsByCategory(db, 5),
-      getNameByUserId(db, req.session.userID)
+      getItemsByCategory(db, curUserId, 1),
+      getItemsByCategory(db, curUserId, 2),
+      getItemsByCategory(db, curUserId, 3),
+      getItemsByCategory(db, curUserId, 4),
+      getItemsByCategory(db, curUserId, 5),
+      getNameByUserId(db, curUserId)
     ]).then(data => {
       const templateVars = {
         films: data[0].rows,
