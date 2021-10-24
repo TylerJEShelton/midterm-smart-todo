@@ -1,3 +1,7 @@
+// more instruction on API:
+// https://developers.themoviedb.org/3/getting-started/introduction
+// https://github.com/grantholle/moviedb-promise
+
 const { MovieDb } = require("moviedb-promise");
 const moviedb = new MovieDb("5697c86773b696d2d13b1748d6445604");
 
@@ -7,6 +11,7 @@ moviedb
     console.log(res);
   })
   .catch(console.error);
+
 // From result, backdrop_path and poster_path:
 // url + file size + above path
 // url: 'https://image.tmdb.org/t/p/'
