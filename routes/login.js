@@ -7,12 +7,10 @@
 
 const express = require("express");
 const router = express.Router();
-// For Testing Purposes Only
-const userID = 1;
 
 module.exports = (db) => {
-  router.get("/1", (req, res) => {
-    req.session.userID = userID;
+  router.get("/:id", (req, res) => {
+    req.session.userID = req.params.id;
     res.redirect("/");
   });
   return router;

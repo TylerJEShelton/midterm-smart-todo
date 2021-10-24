@@ -5,51 +5,78 @@ html {
   margin: 0;
 }
 
-.list-headings {
-  background-color: rgb(236, 199, 128);
+nav {
   display: flex;
-  width: 10rem;
-  height: 2.5rem;
-  justify-content: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: black solid 0.15rem;
+}
+
+.logo {
+  margin: 1rem 0rem 0rem 2rem;
+  font-size: xx-large;
+  font-weight: 500;
+  border: black solid .1rem;
+}
+
+.logged-name {
+  display: flex;
+  flex-direction: row;
   align-items: center;
-  border: 0.1rem solid black;
+  margin-right: 2rem;
+  padding-top: 1rem;
+}
+
+.add-item-form {
+  display: flex;
+  justify-content: center;
+}
+
+.add-item-input {
+  width: 12rem;
+}
+
+.add-description-input {
+  width: 24rem;
 }
 
 .lists {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   width: 10rem;
 }
 
+.list-table {
+  list-style-type: none;
+  padding: 0rem 0.2rem;
+  margin: 0.2rem 0rem;
+}
+
+.list-row {
+  padding-bottom: 1rem;
+}
+
 #lists-container {
+  padding-top: 2rem;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
 }
 
-#films-container {
+.containers {
   height: 20rem;
+  width: 10rem;
   border: 0.1rem solid black;
 }
 
-#food-container {
-  height: 20rem;
-  border: 0.1rem solid black;
-}
-
-#books-container {
-  height: 20rem;
-  border: 0.1rem solid black;
-}
-
-#products-container {
-  height: 20rem;
-  border: 0.1rem solid black;
-}
-
-#other-container {
-  height: 20rem;
-  border: 0.1rem solid black;
+.list-headings {
+  background-color: rgb(114, 160, 182);
+  display: flex;
+  height: 2.5rem;
+  justify-content: center;
+  align-items: center;
 }
