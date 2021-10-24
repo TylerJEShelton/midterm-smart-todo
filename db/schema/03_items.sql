@@ -7,6 +7,6 @@ CREATE TABLE items (
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   category_id INTEGER REFERENCES categories(id) ON DELETE CASCADE,
   date_added TIMESTAMP NOT NULL,
-  description TEXT NOT NULL,
+  description TEXT,
   active BOOLEAN DEFAULT TRUE
 );
