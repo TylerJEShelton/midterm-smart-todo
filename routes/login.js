@@ -10,22 +10,17 @@ const router = express.Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    const templateVars = { user: req.session.first_name };
-    res.render("login");
+    let user = { first_name: req.session.first_name };
+    const templateVars = { user };
+    res.render("login", templateVars);
   });
 
   router.post("/", (req, res) => {
-    const queryString = `
-    SELECT first_name
-    FROM users
-    WHERE users.email = $1
-    `;
-    const login_email = req.body.email;
-    const queryParams = [login_email];
+    req.session.first_name = "haoyan";
+  });
 
-    db.query(queryString, queryParams).then((res) => {
-      req.session.first_name = res.rows[0].first_name;
-    });
+  router.post("/logout", (req, res) => {
+    req.session = null;
   });
 
   return router;
