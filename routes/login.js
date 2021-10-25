@@ -10,17 +10,22 @@ const router = express.Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    let user = { first_name: req.session.first_name };
+    let user = null;
+    if (req.session.first_name) {
+      user = { first_name: req.session.first_name };
+    }
     const templateVars = { user };
     res.render("login", templateVars);
   });
 
   router.post("/", (req, res) => {
     req.session.first_name = "haoyan";
+    res.redirect("/items");
   });
 
   router.post("/logout", (req, res) => {
-    req.session = null;
+    req.session.first_name = null;
+    res.redirect("/items");
   });
 
   return router;
