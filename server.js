@@ -40,19 +40,22 @@ app.use(
 
 app.use(express.static("public"));
 
+const methodOverride = require("method-override");
+app.use(methodOverride("_method"));
+
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
 const usersRoutes = require("./routes/users");
 const loginRoute = require("./routes/login");
 const itemsRoutes = require("./routes/items");
-// const registerRoutes = require("./routes/register");
+const registerRoutes = require("./routes/register");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
 app.use("/login", loginRoute(db));
 app.use("/items", itemsRoutes(db));
-// app.use("/register", registerRoutes(db));
+app.use("/register", registerRoutes(db));
 // Note: mount other resources here, using the same pattern above
 
 // Home page
@@ -62,7 +65,6 @@ app.use("/items", itemsRoutes(db));
 app.get("/", (req, res) => {
   res.redirect("/items");
 });
-
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
