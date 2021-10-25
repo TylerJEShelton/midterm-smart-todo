@@ -16,7 +16,6 @@ module.exports = (db) => {
       getItemsByCategory(db, curUserId, 3),
       getItemsByCategory(db, curUserId, 4),
       getItemsByCategory(db, curUserId, 5),
-      getNameByUserId(db, curUserId),
     ]).then((data) => {
       const templateVars = {
         films: data[0].rows,
@@ -24,8 +23,12 @@ module.exports = (db) => {
         books: data[2].rows,
         products: data[3].rows,
         other: data[4].rows,
-        first_name: data[5].rows[0].first_name,
       };
+      let user = null;
+      if (req.session.first_name) {
+        user = { first_name: req.session.first_name };
+      }
+      templateVars.user = user;
       res.render("main", templateVars);
     });
   });
