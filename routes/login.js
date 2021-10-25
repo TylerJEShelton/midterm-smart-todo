@@ -10,7 +10,23 @@ const router = express.Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
+    const templateVars = { user: req.session.first_name };
     res.render("login");
   });
+
+  router.post("/", (req, res) => {
+    const queryString = `
+    SELECT first_name
+    FROM users
+    WHERE users.email = $1
+    `;
+    const login_email = req.body.email;
+    const queryParams = [login_email];
+
+    db.query(queryString, queryParams).then((res) => {
+      req.session.first_name = res.rows[0].first_name;
+    });
+  });
+
   return router;
 };
