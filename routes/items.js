@@ -2,35 +2,44 @@ const express = require("express");
 const router = express.Router();
 const {
   getItemsByCategory,
-  getNameByUserId,
+  getUserByEmail,
   getCategoryId,
 } = require("../lib/data_helpers");
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    req.session.userID = 1;
-    const curUserId = req.session.userID;
-    Promise.all([
-      getItemsByCategory(db, curUserId, 1),
-      getItemsByCategory(db, curUserId, 2),
-      getItemsByCategory(db, curUserId, 3),
-      getItemsByCategory(db, curUserId, 4),
-      getItemsByCategory(db, curUserId, 5),
-    ]).then((data) => {
-      const templateVars = {
-        films: data[0].rows,
-        restaurants: data[1].rows,
-        books: data[2].rows,
-        products: data[3].rows,
-        other: data[4].rows,
-      };
-      let user = null;
-      if (req.session.first_name) {
-        user = { first_name: req.session.first_name };
-      }
-      templateVars.user = user;
-      res.render("main", templateVars);
-    });
+    if (req.session.email) {
+      let email = req.session.email;
+
+      getUserByEmail(db, email).then((responce) => {
+        let user = responce.rows[0];
+        const curUserId = user.id;
+        Promise.all([
+          getItemsByCategory(db, curUserId, 1),
+          getItemsByCategory(db, curUserId, 2),
+          getItemsByCategory(db, curUserId, 3),
+          getItemsByCategory(db, curUserId, 4),
+          getItemsByCategory(db, curUserId, 5),
+        ]).then((data) => {
+          const templateVars = {
+            films: data[0].rows,
+            restaurants: data[1].rows,
+            books: data[2].rows,
+            products: data[3].rows,
+            other: data[4].rows,
+          };
+          let user = null;
+          if (req.session.first_name) {
+            user = { first_name: req.session.first_name };
+          }
+          templateVars.user = user;
+          res.render("main", templateVars);
+        });
+      });
+    }
+    if (!req.session.email) {
+      res.redirect("/login");
+    }
   });
 
   router.post("/", (req, res) => {
