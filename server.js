@@ -22,7 +22,7 @@ app.use(morgan("dev"));
 app.use(
   cookieSession({
     name: "session",
-    keys: ["userID"],
+    keys: ["first_name"],
   })
 );
 
