@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Smart ToDo - Login</title>
+</head>
+
+<body>
+
+  <%- include('partials/_header') %>
+
+  <main>
+    <h3>Login</h3>
+    <form action="/login" method="POST">
+      <label for="username">Username</label>
+      <input class="form-control" type="text" name="username" placeholder="Enter your username">
+      <label for="password">Password</label>
+      <input class="form-control" type="password" name="password" placeholder="Enter your password">
+      <button type="submit">Login</button>
+    </form>
+  </main>
+
+</body>
+
+</html>

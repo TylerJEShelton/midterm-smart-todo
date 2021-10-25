@@ -9,9 +9,8 @@ const express = require("express");
 const router = express.Router();
 
 module.exports = (db) => {
-  router.get("/:id", (req, res) => {
-    req.session.userID = req.params.id;
-    res.redirect("/");
+  router.get("/", (req, res) => {
+    res.render("login");
   });
   return router;
 };
