@@ -1,9 +1,4 @@
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-
   background: rgb(163, 208, 219);
   background: linear-gradient(
     227deg,
@@ -14,4 +9,26 @@ body {
     rgba(163, 208, 219, 1) 74%,
     rgba(163, 208, 219, 1) 100%
   );
+  color: navy;
 }
+
+// HEADER ========================
+#logout-form > label, #login-form > input {
+  background: #fff; padding: 5px 7px; 
+  border: none; border-radius: 4px;
+}
+.horiz-list {
+  list-style-type: none;
+  margin: 10px 15px;
+}
+.horiz-list li {
+  display: inline-block;
+  margin-right: 5px;
+}
+.horiz-list li a {color: #fff;}
+
+//Links
+a:hover {cursor:pointer;}
+
+
+

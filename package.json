@@ -6,15 +6,18 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
+    "nodemon": "nodemon server.js",
     "local": "./node_modules/.bin/nodemon -L --ignore public/",
-    "db:reset": "node bin/resetdb.js"
+    "db:reset": "node bin/resetdb.js",
+    "sass": "sass --watch styles:public/styles"
   },
   "author": "Lighthouse Labs",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "chalk": "^2.4.2",
-    "dotenv": "^2.0.0",
-    "ejs": "^2.6.2",
+    "cookie-session": "^1.4.0",
+    "ejs": "^3.1.6",
     "express": "^4.17.1",
     "morgan": "^1.9.1",
     "pg": "^8.5.0",
@@ -22,6 +25,7 @@
     "sass": "^1.35.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.10"
+    "dotenv": "^2.0.0",
+    "nodemon": "^2.0.14"
   }
 }

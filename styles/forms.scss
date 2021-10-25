@@ -1,0 +1,54 @@
+//Forms login - register ==================
+
+//Login from ------------
+body{font-size: 16px;}
+#log-form {
+  max-width: 300px;
+  margin: 20px auto;
+  background-color: rgb(229, 240, 250);
+  padding: 15px;
+  border-radius: 4px;
+}
+#log-form h4 {text-align: center; margin: 5px 0 20px 0;}
+#log-form div {margin-bottom: 10px; }
+#log-form input {
+  float:right;
+  padding: 4px;
+  outline: none;
+  border-style: solid;
+  border-color: rgb(96, 149, 199);
+  border-radius: 4px;
+  }
+  #log-form #cancel {float:right; margin-top: 20px;}
+
+//Register from ------------
+#reg-form {
+  max-width: 300px;
+  margin: 20px auto;
+  background-color: rgb(229, 240, 250);
+  padding: 15px;
+  border-radius: 4px;
+}
+#reg-form h4 {text-align: center; margin: 5px 0 20px 0;}
+#reg-form div {margin-bottom: 10px; }
+#reg-form input {
+  float:right;
+  padding: 4px;
+  outline: none;
+  border-style: solid;
+  border-color: rgb(96, 149, 199);
+  border-radius: 4px;
+  }
+  #reg-form #cancel {float:right; margin-top: 20px;}
+//-------------------------
+#form-error-div {
+  margin-top: 10px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+.form-error {
+  border: 2px solid #c41f77;
+  color: #c41f77;
+  padding: 3px;
+  border-radius: 2px;
+}

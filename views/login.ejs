@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="/styles/forms.css" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/scripts/formvalid.js"></script>
+  </head>
+
+  <body>
+    
+
+  <form action="login" method="post" id="log-form">
+    <h4>Login</h4>
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" name="email" id="email">  
+    </div>
+    <div>
+      <label for="password">Password:</label>
+      <input type="password" name="password" id="password">  
+    </div>
+    <button type="submit" class="btn btn-primary mt-2">Login</button>
+    <a href="/" id="cancel">Cancel</a>
+    <div id="form-error-div"></div>
+  </form>
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
