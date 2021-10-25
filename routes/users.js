@@ -121,7 +121,6 @@ router.post("/logout", (req, res) => {
        }   
   });
 
-
   return router;
 };
 
