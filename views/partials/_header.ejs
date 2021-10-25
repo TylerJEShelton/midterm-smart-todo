@@ -1,16 +1,13 @@
 <header>
   <nav>
-    <div class="logo">SMART TODO</div>
+    <a class="logo" href="/items">SMART TODO</a>
+    <a href="items">My ToDo List</a>
+    <a href="items/new">Create New ToDo</a>
+    <a href="/login">Login</a>
+    <a href="/register">Register</a>
     <!-- <div class="inline-flex" style="right: 25px; position: absolute;"> -->
 
     <!-- If not logged in -->
-    <div class="logged-name">
-      <form class="form-inline justify-content-right" action="/logout" method="POST">
-        <label for="first_name" style="margin-right: 10px;">
-          Hi, <%= first_name %>
-        </label>
-        <button type="submit" class="btn btn-outline-dark">Logout</button>
-      </form>
-    </div>
+
   </nav>
 </header>
