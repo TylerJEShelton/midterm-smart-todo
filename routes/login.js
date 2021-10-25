@@ -27,6 +27,7 @@ module.exports = (db) => {
       let user = responce.rows[0];
       if (bcrypt.compareSync(req.body.password, user.password)) {
         req.session.first_name = user.first_name;
+        req.session.email = user.email;
         res.redirect("/items");
         return;
       }
@@ -38,7 +39,7 @@ module.exports = (db) => {
   });
 
   router.post("/logout", (req, res) => {
-    req.session.first_name = null;
+    req.session = null;
     res.redirect("/items");
   });
 

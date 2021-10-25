@@ -49,6 +49,7 @@ module.exports = (db) => {
       db.query(queryString, queryParams);
 
       req.session.first_name = first_name;
+      req.session.email = email;
       res.redirect("/items");
     });
   });
