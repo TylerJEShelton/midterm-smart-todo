@@ -43,17 +43,21 @@ module.exports = (db) => {
   });
 
   router.post("/", (req, res) => {
-    const title = req.body.title;
-    const userId = req.session.userID;
-    const categoryId = getCategoryId(title);
-    const dateAdded = new Date().toISOString().slice(0, 19).replace("T", " ");
-    const description = req.body.description;
+    let email = req.session.email;
+    getUserByEmail(db, email).then((responce) => {
+      let user = responce.rows[0];
+      const title = req.body.title;
+      const userId = user.id;
+      const categoryId = getCategoryId(title);
+      const dateAdded = new Date().toISOString().slice(0, 19).replace("T", " ");
+      const description = req.body.description;
 
-    const queryString = `INSERT INTO items (title, user_id, category_id, date_added, description) VALUES ($1, $2, $3, $4, $5);`;
-    const queryParams = [title, userId, categoryId, dateAdded, description];
+      const queryString = `INSERT INTO items (title, user_id, category_id, date_added, description) VALUES ($1, $2, $3, $4, $5);`;
+      const queryParams = [title, userId, categoryId, dateAdded, description];
 
-    db.query(queryString, queryParams).then((data) => {
-      res.redirect("/");
+      db.query(queryString, queryParams).then((data) => {
+        res.redirect("/");
+      });
     });
   });
 
