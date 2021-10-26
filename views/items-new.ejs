@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Smart ToDo - Registration</title>
+
+  <!-- External JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <!-- App JS -->
+  <script type="text/javascript" src="/scripts/app.js"></script>
+
+</head>
+
+<body>
+
+  <%- include('partials/_header') %>
+
+  <main>
+    <h2>Search by keyword</h2>
+      <form action="/items/new" method="POST">
+        <label for="key">Enter Key Word</label>
+        <input id="key" type="text" name="key" placeholder="Enter your keyword">
+        <button type="submit" class="btn btn-primary">Register</button>
+      </form>
+      <dev id="testing">ahhahah</dev>
+
+</body>
+
+</html>

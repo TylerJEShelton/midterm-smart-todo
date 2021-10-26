@@ -10,7 +10,6 @@ module.exports = (db) => {
   router.get("/", (req, res) => {
     if (req.session.email) {
       let email = req.session.email;
-
       getUserByEmail(db, email).then((responce) => {
         let user = responce.rows[0];
         const curUserId = user.id;
@@ -29,6 +28,7 @@ module.exports = (db) => {
             other: data[4].rows,
           };
           let user = null;
+
           if (req.session.first_name) {
             user = { first_name: req.session.first_name };
           }
@@ -59,6 +59,19 @@ module.exports = (db) => {
         res.redirect("/");
       });
     });
+  });
+
+  router.get("/new", (req, res) => {
+    if (!req.session.email) {
+      res.redirect("/login");
+      return;
+    }
+    let user = null;
+    if (req.session.first_name) {
+      user = { first_name: req.session.first_name };
+    }
+    const templateVars = { user };
+    res.render("items-new", templateVars);
   });
 
   return router;
