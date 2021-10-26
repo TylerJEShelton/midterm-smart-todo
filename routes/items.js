@@ -1,12 +1,12 @@
 const express = require("express");
 const router = express.Router();
-const {
-  getItemsByCategory,
-  getUserByEmail,
-  getCategoryId,
-} = require("../lib/data_helpers");
 
 module.exports = (db) => {
+  const {
+    getItemsByCategory,
+    getUserByEmail,
+    getCategoryId,
+  } = require("../lib/data_helpers");
   router.get("/", (req, res) => {
     if (req.session.email) {
       let email = req.session.email;
