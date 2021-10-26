@@ -25,6 +25,18 @@ module.exports = (db) => {
     let email = req.body.email;
     getUserByEmail(db, email).then((responce) => {
       let user = responce.rows[0];
+      if (req.body.email === "") {
+        res.status(400).send("email cannot be empty");
+        return;
+      }
+      if (!user) {
+        res.status(400).send("email not registered");
+        return;
+      }
+      if (req.body.password === "") {
+        res.status(400).send("password cannot be empty");
+        return;
+      }
       if (bcrypt.compareSync(req.body.password, user.password)) {
         req.session.first_name = user.first_name;
         req.session.email = user.email;
