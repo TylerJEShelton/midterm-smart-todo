@@ -1,23 +1,79 @@
 // See: https://sass-lang.com/
 
-body,
 html {
-  margin: 0;
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+body {
+  box-sizing: border-box;
+  margin: 0 auto;
+  width: 90% ;
+  font-size: 16px;
+  font-family:  sans-serif;
+}
+// Colors ------------
+$darkblue: #215ea3;
+$logo-color: #1f45b8; 
+$border-color: #5d6f83;
+$link-color: #4369b5;
+
+// Links -------------
+a {
+  text-decoration: none;
+  color: $link-color;
+}
+a:hover {
+  text-decoration: underline;
+}
+a:visited {
+  // color: default;
 }
 
+//HEADER ----------------
 nav {
+  // border: 1px solid blue;
+  padding: 1rem 1rem;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 2rem;
-  padding-bottom: 1rem;
-  border-bottom: black solid 0.15rem;
-}
+  align-items: center;
 
-.logo {
-  margin: 1rem 0rem 0rem 2rem;
-  font-size: xx-large;
-  font-weight: 500;
-  border: black solid .1rem;
+  margin-bottom: 2rem;
+  // padding-bottom: 1rem;
+  // border-bottom:  #215ea3 solid 1px;
+}
+#nav-link-div {
+  width: 25%;
+  display: flex;
+  justify-content: space-between;
+}
+#nav-link-div a {
+  display: inline-block;
+  padding: 3px 7px;
+  border: 1px solid #b3bfe7;
+  border-radius: 5px;
+  text-decoration: none;
+}
+#nav-link-div a:hover {
+  color: white;
+  background: #798bc7;
+}
+// Logo ---------
+a.logo {
+  display: inline-block;
+  font-family: 'Rampart One', cursive;
+  font-size: 1.4rem;
+  color: $logo-color;
+  text-shadow: 1px 1px 2px #cbdff5;
+  padding: 1px 5px;
+  border-radius: 4px;
+}
+a.logo:hover {
+  text-decoration: none;
+  text-shadow:none;
+   background: #5179ca;
+   color: white;
 }
 
 .logged-name {
@@ -41,12 +97,43 @@ nav {
   width: 24rem;
 }
 
-.lists {
+/* Main Body ---------- */
+.containers {
+  min-height: 20rem;
+  width: 100%;
+  border: 1px solid $border-color;
+  box-shadow:  0 2px 3px 3px rgb(190, 202, 229);
+  border-radius: 2px;
+
+#lists-container {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.list-headings {
+  // border: 1px solid red ;
+  width:100%;
+  background-color:$darkblue; /* rgb(114, 160, 182); */
+  color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  width: 10rem;
+  height: 2.5rem;
+  border: white;
+  border-radius: 2px 2px 0 0;
+}
+
+.list {
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  // flex-direction: column;
+  width: 12rem;
+  margin: 12px;
 }
 
 .list-table {
@@ -59,24 +146,9 @@ nav {
   padding-bottom: 1rem;
 }
 
-#lists-container {
-  padding-top: 2rem;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-evenly;
+
+.padding5 {
+  padding: 5px;
 }
 
-.containers {
-  height: 20rem;
-  width: 10rem;
-  border: 0.1rem solid black;
-}
 
-.list-headings {
-  background-color: rgb(114, 160, 182);
-  display: flex;
-  height: 2.5rem;
-  justify-content: center;
-  align-items: center;
-}
