@@ -3,6 +3,7 @@
 
 <head>
   <title>Smart ToDo - Login</title>
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 </head>
 
 <body>
@@ -10,13 +11,19 @@
   <%- include('partials/_header') %>
 
   <main>
-    <h3>Login</h3>
-    <form action="/login" method="POST">
-      <label for="email">Email address</label>
-      <input class="form-control" type="email" name="email" placeholder="Enter email">
-      <label for="password">Password</label>
-      <input class="form-control" type="password" name="password" placeholder="Enter your password">
-      <button type="submit">Login</button>
+    <form id="login-form" action="/login" method="POST" class="br5">
+      <h3 class="center">Login</h3>
+      <div>
+        <label for="email">Email address</label>
+        <input class="form-control" type="email" name="email" placeholder="Enter email">
+      </div>
+      <div>
+        <label for="password">Password</label>
+        <input class="form-control" type="password" name="password" placeholder="Enter your password">
+      </div>
+      <div>
+        <button class="btn-green" type="submit">Login</button>
+      </div>
     </form>
   </main>
 

@@ -9,7 +9,7 @@
 <header>
   <nav>
     <a class="logo" href="/items">SMART TODO</a>
-    <div id="nav-link-div">
+    <div class="nav-link-div">
       <a href="/items">My ToDo List </a>
       <a href="/items/new">Create New ToDo</a>  
     </div>
@@ -18,13 +18,15 @@
       <% if (user) { %>
         <form id = "logout-form" action="/login/logout" method="POST">
           <div>
-            Logged In As: <span id="loggedin-user"><%= user.first_name %> </span>
+            Logged in as: <span id="loggedin-user"><%= user.first_name %> </span>
             <button class="btn-red" type="submit">Logout</button>
           </div>
         </form>
       <% } else { %>
+        <div class="nav-login-div">
           <a href="/login">Login</a>
           <a href="/register">Register</a>
+        </div>
       <% } %>
 
   </nav>

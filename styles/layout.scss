@@ -14,22 +14,26 @@ body {
   font-size: 16px;
   font-family:  sans-serif;
 }
+//Helpers------------
+.center{text-align: center;}
+.padding5 {padding: 5px;}
+.br5{border-radius: 5px;}
+
 // Colors ------------
 $darkblue: #215ea3;
+$lightblue: #7eade2;
 $logo-color: #193faf; 
 $border-color: #5d6f83;
 $link-color: #4369b5;
+$form-bkg: #f5faff;
 
 // Links -------------
 a {
   text-decoration: none;
   color: $link-color;
-}
-a:hover {
-  text-decoration: underline;
-}
-a:visited {
-  // color: default;
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 //HEADER ----------------
@@ -46,26 +50,6 @@ nav {
   margin-bottom: 2rem;
   // padding-bottom: 1rem;
   // border-bottom:  #215ea3 solid 1px;
-}
-#nav-link-div {
-  width: 25%;
-  display: flex;
-  justify-content: space-between;
-}
-#nav-link-div a {
-  display: inline-block;
-  padding: 2px 7px;
-  border: 1px solid #a3b3e6;
-  background-color: white;
-  border-radius: 5px;
-  text-decoration: none;
-}
-#nav-link-div a:hover {
-  color: white;
-  background: #798bc7;
-}
-span#loggedin-user{
-  color: rgb(21, 148, 93);
 }
 // Logo ---------
 a.logo {
@@ -85,25 +69,33 @@ a.logo:hover {
    color: white;
 }
 
-.logged-name {
+//main.ejs page nav links:
+.nav-link-div {
+  width: 25%;
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-right: 2rem;
-  padding-top: 1rem;
+  justify-content: space-between;
 }
-
-.add-item-form {
+.nav-link-div a {
+  display: inline-block;
+  padding: 2px 7px;
+  border: 1px solid #a3b3e6;
+  background-color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  &:hover {
+    color: white;
+    background: #798bc7;
+  }
+}
+span#loggedin-user{
+  color: rgb(21, 148, 93);
+}
+//login.ejs page nav links:
+.nav-login-div {
+  margin-right: 1rem;
+  width: 10%;
   display: flex;
-  justify-content: center;
-}
-
-.add-item-input {
-  width: 12rem;
-}
-
-.add-description-input {
-  width: 24rem;
+  justify-content: space-between;
 }
 
 /* Main Body ---------- */
@@ -155,38 +147,70 @@ a.logo:hover {
 .list-row {
   padding-bottom: 1rem;
 }
-.padding5 {
-  padding: 5px;
-}
-//Buttons --------
+//Buttons ------------
 button { 
   padding: 3px 5px;
+  &:hover {
+    cursor: pointer;
+  }
 }
-button:hover{
-  cursor: pointer;
-}
- .btn-red {
+.btn-red {
   background: rgb(247, 223, 226);
   border: 1px solid rgb(211, 135, 145);
   border-radius: 2px;
-}
-.btn-red:hover{
-  color:white;
-  background: rgb(187, 91, 104);
+  &:hover {
+    color:white;
+    background: rgb(187, 91, 104);
+    }
 }
 .btn-green {
   background: rgb(214, 241, 228);
   border: 1px solid  rgb(26, 155, 93);
   border-radius: 2px;
-}
-.btn-green:hover{
-background:  rgb(15, 139, 79);
-color: white;
+  &:hover {
+    background:  rgb(15, 139, 79);
+    color: white;
+  }
 }
 
-// FORMS -------------
+// FORMS =================
 input {
   padding: 2px;
+  background-color: #fff;
+  outline:none;
 }
+//main.ejs form ----------
+.add-item-form {
+  display: flex;
+  justify-content: center;
+}
+.add-item-input {
+  width: 12rem;
+}
+.add-description-input {
+  width: 24rem;
+}
+//login.ejs form ----------
+#login-form h3{
+  margin: 5px 0 1.5rem 0;
+  color: $darkblue;
+}
+
+#login-form {
+  overflow: hidden;
+  padding:14px ;
+  border: 1px solid $lightblue;
+  max-width:300px;
+  margin: 10px auto;
+  background: $form-bkg;
+}
+#login-form div {
+  margin-bottom: 1.1rem;
+}
+#login-form div input, #login-form button {
+  float: right;
+}
+
+
 
 
