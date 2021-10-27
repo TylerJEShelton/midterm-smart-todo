@@ -121,14 +121,14 @@ router.post("/logout", (req, res) => {
        }   
   });
 
-  //:id route for logged in user to show his data
+/*   //:id route for logged in user to show his data
   run DB query to pull user's data from DB
   send data to new .ejs file
 
   // post route to make API call using dat from the search from
   axio API call from back end
   run SQL query to add api data to DB
-
+ */
   return router;
 };
 
