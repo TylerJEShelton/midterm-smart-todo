@@ -22,16 +22,16 @@
       <form action="/items" method="POST">
         <input class="form-control add-item-input" type="text" name="title" placeholder="Enter your ToDo item">
         <input class="form-control add-description-input" type="text" name="description" placeholder="Enter your notes">
-        <button type="submit" class="btn btn-primary">Add New ToDo Item</button>
+        <button class="btn-green" type="submit" class="btn btn-primary">Add New ToDo Item</button>
       </form>
     </div>
 
     <section id="lists-container">
-      <section class="lists">
-        <div class="list-headings containers">
+      <section class="list">
+        <div class="list-headings ">
           <h4>Films / TV Series</h4>
         </div>
-        <div id="films-containers" class="containers">
+        <div id="films-containers" class="containers padding5">
           <ul class="list-table">
             <% for (const film of films) { %>
               <li class="list-row">
@@ -42,11 +42,11 @@
         </div>
       </section>
 
-      <section class="lists">
-        <div class="list-headings containers">
+      <section class="list">
+        <div class="list-headings">
           <h4>Restaurants / Cafes</h4>
         </div>
-        <div id="food-container" class="containers">
+        <div id="food-container" class="containers padding5">
           <ul class="list-table">
             <% for (let restaurant of restaurants) { %>
               <li class="list-row">
@@ -57,11 +57,11 @@
         </div>
       </section>
 
-      <section class="lists">
-        <div class="list-headings containers">
+      <section class="list">
+        <div class=" list-headings">
           <h4>Books</h4>
         </div>
-        <div id="books-container" class="containers">
+        <div id="books-container" class="containers padding5">
           <ul class="list-table">
             <% for (let book of books) { %>
               <li class="list-row">
@@ -72,11 +72,11 @@
         </div>
       </section>
 
-      <section class="lists">
-        <div class="list-headings containers">
+      <section class="list">
+        <div class=" list-headings">
           <h4>Products to Buy</h4>
         </div>
-        <div id="products-container" class="containers">
+        <div id="products-container" class="containers padding5">
           <ul class="list-table">
             <% for (let product of products) { %>
               <li class="list-row">
@@ -87,11 +87,11 @@
         </div>
       </section>
 
-      <section class="lists">
-        <div class="list-headings containers">
+      <section class="list">
+        <div class="  list-headings">
           <h4>Other</h4>
         </div>
-        <div id="other-container" class="containers">
+        <div id="other-container" class="containers padding5">
           <ul class="list-table">
             <% for (let item of other) { %>
               <li class="list-row">

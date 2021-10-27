@@ -1,23 +1,88 @@
 // See: https://sass-lang.com/
 
-body,
 html {
-  margin: 0;
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+body {
+  // background-color: red;
+  box-sizing: border-box;
+  margin: 0 auto;
+  width: 90% ;
+  font-size: 16px;
+  font-family:  sans-serif;
+}
+// Colors ------------
+$darkblue: #215ea3;
+$logo-color: #193faf; 
+$border-color: #5d6f83;
+$link-color: #4369b5;
+
+// Links -------------
+a {
+  text-decoration: none;
+  color: $link-color;
+}
+a:hover {
+  text-decoration: underline;
+}
+a:visited {
+  // color: default;
 }
 
+//HEADER ----------------
 nav {
+  // border: 1px solid blue;
+  background: #f5f7fa;
+  border: 5px;
+  padding: 1rem 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 2rem;
+  // padding-bottom: 1rem;
+  // border-bottom:  #215ea3 solid 1px;
+}
+#nav-link-div {
+  width: 25%;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 2rem;
-  padding-bottom: 1rem;
-  border-bottom: black solid 0.15rem;
 }
-
-.logo {
-  margin: 1rem 0rem 0rem 2rem;
-  font-size: xx-large;
-  font-weight: 500;
-  border: black solid .1rem;
+#nav-link-div a {
+  display: inline-block;
+  padding: 2px 7px;
+  border: 1px solid #a3b3e6;
+  background-color: white;
+  border-radius: 5px;
+  text-decoration: none;
+}
+#nav-link-div a:hover {
+  color: white;
+  background: #798bc7;
+}
+span#loggedin-user{
+  color: rgb(21, 148, 93);
+}
+// Logo ---------
+a.logo {
+  display: inline-block;
+  font-family: 'Rampart One', cursive;
+  font-size: 1.4rem;
+  color: $logo-color;
+  text-shadow: 1px 1px 1px #cbdff5;
+  padding: 1px 5px;
+  border-radius: 4px;
+  background: white;
+}
+a.logo:hover {
+  text-decoration: none;
+  text-shadow:none;
+   background: #5179ca;
+   color: white;
 }
 
 .logged-name {
@@ -41,12 +106,44 @@ nav {
   width: 24rem;
 }
 
-.lists {
+/* Main Body ---------- */
+#lists-container {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.containers {
+  min-height: 20rem;
+  width: 100%;
+  border: 1px solid $border-color;
+  border-radius: 2px;
+}
+
+.list-headings {
+  // border: 1px solid red ;
+  width:100%;
+  background-color:$darkblue; /* rgb(114, 160, 182); */
+  color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  width: 10rem;
+  height: 2.5rem;
+  border-radius: 2px 2px 0 0;
+}
+
+.list {
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  // flex-direction: column;
+  width: 12rem;
+  margin: 12px;
+  box-shadow:  0 1px 3px 0 rgba(200, 213, 239, 0.87);
+  border-radius: 3px;
 }
 
 .list-table {
@@ -58,25 +155,38 @@ nav {
 .list-row {
   padding-bottom: 1rem;
 }
-
-#lists-container {
-  padding-top: 2rem;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-evenly;
+.padding5 {
+  padding: 5px;
+}
+//Buttons --------
+button { 
+  padding: 3px 5px;
+}
+button:hover{
+  cursor: pointer;
+}
+ .btn-red {
+  background: rgb(247, 223, 226);
+  border: 1px solid rgb(211, 135, 145);
+  border-radius: 2px;
+}
+.btn-red:hover{
+  color:white;
+  background: rgb(187, 91, 104);
+}
+.btn-green {
+  background: rgb(214, 241, 228);
+  border: 1px solid  rgb(26, 155, 93);
+  border-radius: 2px;
+}
+.btn-green:hover{
+background:  rgb(15, 139, 79);
+color: white;
 }
 
-.containers {
-  height: 20rem;
-  width: 10rem;
-  border: 0.1rem solid black;
+// FORMS -------------
+input {
+  padding: 2px;
 }
 
-.list-headings {
-  background-color: rgb(114, 160, 182);
-  display: flex;
-  height: 2.5rem;
-  justify-content: center;
-  align-items: center;
-}
+

@@ -1,15 +1,25 @@
+<!-- Google Fonts
+    font-family: 'Inter', sans-serif;
+    font-family: 'Rampart One', cursive;
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter&family=Rampart+One&display=swap" rel="stylesheet">
+
 <header>
   <nav>
     <a class="logo" href="/items">SMART TODO</a>
-    <a href="/items">My ToDo List</a>
-    <a href="/items/new">Create New ToDo</a>
+    <div id="nav-link-div">
+      <a href="/items">My ToDo List </a>
+      <a href="/items/new">Create New ToDo</a>  
+    </div>
     <!-- <div class="inline-flex" style="right: 25px; position: absolute;"> -->
 
       <% if (user) { %>
-        <form action="/login/logout" method="POST">
+        <form id = "logout-form" action="/login/logout" method="POST">
           <div>
-            <a>Logged In As: <%= user.first_name %></a>
-            <button type="submit">Logout</button>
+            Logged In As: <span id="loggedin-user"><%= user.first_name %> </span>
+            <button class="btn-red" type="submit">Logout</button>
           </div>
         </form>
       <% } else { %>
