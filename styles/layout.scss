@@ -7,6 +7,7 @@ html {
   box-sizing: inherit;
 }
 body {
+  // background-color: red;
   box-sizing: border-box;
   margin: 0 auto;
   width: 90% ;
@@ -15,7 +16,7 @@ body {
 }
 // Colors ------------
 $darkblue: #215ea3;
-$logo-color: #1f45b8; 
+$logo-color: #193faf; 
 $border-color: #5d6f83;
 $link-color: #4369b5;
 
@@ -34,8 +35,11 @@ a:visited {
 //HEADER ----------------
 nav {
   // border: 1px solid blue;
+  background: #f5f7fa;
+  border: 5px;
   padding: 1rem 1rem;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
 
@@ -50,8 +54,9 @@ nav {
 }
 #nav-link-div a {
   display: inline-block;
-  padding: 3px 7px;
-  border: 1px solid #b3bfe7;
+  padding: 2px 7px;
+  border: 1px solid #a3b3e6;
+  background-color: white;
   border-radius: 5px;
   text-decoration: none;
 }
@@ -59,15 +64,19 @@ nav {
   color: white;
   background: #798bc7;
 }
+span#loggedin-user{
+  color: rgb(21, 148, 93);
+}
 // Logo ---------
 a.logo {
   display: inline-block;
   font-family: 'Rampart One', cursive;
   font-size: 1.4rem;
   color: $logo-color;
-  text-shadow: 1px 1px 2px #cbdff5;
+  text-shadow: 1px 1px 1px #cbdff5;
   padding: 1px 5px;
   border-radius: 4px;
+  background: white;
 }
 a.logo:hover {
   text-decoration: none;
@@ -98,13 +107,6 @@ a.logo:hover {
 }
 
 /* Main Body ---------- */
-.containers {
-  min-height: 20rem;
-  width: 100%;
-  border: 1px solid $border-color;
-  box-shadow:  0 2px 3px 3px rgb(190, 202, 229);
-  border-radius: 2px;
-
 #lists-container {
   margin-top: 1.5rem;
   display: flex;
@@ -112,6 +114,13 @@ a.logo:hover {
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
+}
+
+.containers {
+  min-height: 20rem;
+  width: 100%;
+  border: 1px solid $border-color;
+  border-radius: 2px;
 }
 
 .list-headings {
@@ -123,7 +132,6 @@ a.logo:hover {
   justify-content: center;
   align-items: center;
   height: 2.5rem;
-  border: white;
   border-radius: 2px 2px 0 0;
 }
 
@@ -134,6 +142,8 @@ a.logo:hover {
   // flex-direction: column;
   width: 12rem;
   margin: 12px;
+  box-shadow:  0 1px 3px 0 rgba(200, 213, 239, 0.87);
+  border-radius: 3px;
 }
 
 .list-table {
@@ -145,10 +155,38 @@ a.logo:hover {
 .list-row {
   padding-bottom: 1rem;
 }
-
-
 .padding5 {
   padding: 5px;
+}
+//Buttons --------
+button { 
+  padding: 3px 5px;
+}
+button:hover{
+  cursor: pointer;
+}
+ .btn-red {
+  background: rgb(247, 223, 226);
+  border: 1px solid rgb(211, 135, 145);
+  border-radius: 2px;
+}
+.btn-red:hover{
+  color:white;
+  background: rgb(187, 91, 104);
+}
+.btn-green {
+  background: rgb(214, 241, 228);
+  border: 1px solid  rgb(26, 155, 93);
+  border-radius: 2px;
+}
+.btn-green:hover{
+background:  rgb(15, 139, 79);
+color: white;
+}
+
+// FORMS -------------
+input {
+  padding: 2px;
 }
 
 

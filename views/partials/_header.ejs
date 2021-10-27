@@ -16,10 +16,10 @@
     <!-- <div class="inline-flex" style="right: 25px; position: absolute;"> -->
 
       <% if (user) { %>
-        <form action="/login/logout" method="POST">
+        <form id = "logout-form" action="/login/logout" method="POST">
           <div>
-            <span>Logged In As: <%= user.first_name %></span>
-            <button type="submit">Logout</button>
+            Logged In As: <span id="loggedin-user"><%= user.first_name %> </span>
+            <button class="btn-red" type="submit">Logout</button>
           </div>
         </form>
       <% } else { %>
