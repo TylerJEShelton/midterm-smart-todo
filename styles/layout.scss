@@ -98,7 +98,7 @@ span#loggedin-user{
   justify-content: space-between;
 }
 
-/* Main Body main.ejs ---------- */
+/* Main Body in the main.ejs ---------- */
 #lists-container {
   margin-top: 1.5rem;
   display: flex;
@@ -143,6 +143,12 @@ span#loggedin-user{
 .list-row {
   padding-bottom: 1rem;
 }
+
+/* Main Body in the register.ejs ---------- */
+#main-register {
+  max-width: 400px;
+  margin: 0 auto;
+}
 //Buttons ------------
 button { 
   padding: 3px 5px;
@@ -179,7 +185,7 @@ input {
   border-radius: 2px;
 }
 
-//main.ejs form ----------
+//main.ejs Form ----------
 .add-item-form {
   display: flex;
   justify-content: center;
@@ -201,7 +207,7 @@ input {
   padding: 14px ;
   border: 1px solid $lightblue;
   max-width:300px;
-  margin: 10px auto;
+  margin: 10px auto 1rem auto;
   background: $form-bkg;
 }
 .log-reg-form div {
@@ -209,6 +215,14 @@ input {
 }
 .log-reg-form div input, .log-reg-form button {
   float: right;
+}
+.log-reg-form input {
+  border-color: $lightblue;
+  &:focus{
+    box-shadow:  0 0 2px 2px rgba(200, 213, 239, 0.87);
+}
+
+
 }
 
 
