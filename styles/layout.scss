@@ -69,7 +69,7 @@ a.logo:hover {
    color: white;
 }
 
-//main.ejs page nav links:
+//main.ejs page nav links
 .nav-link-div {
   width: 25%;
   display: flex;
@@ -98,7 +98,7 @@ span#loggedin-user{
   justify-content: space-between;
 }
 
-/* Main Body ---------- */
+/* Main Body main.ejs ---------- */
 #lists-container {
   margin-top: 1.5rem;
   display: flex;
@@ -128,10 +128,6 @@ span#loggedin-user{
 }
 
 .list {
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
-  // flex-direction: column;
   width: 12rem;
   margin: 12px;
   box-shadow:  0 1px 3px 0 rgba(200, 213, 239, 0.87);
@@ -178,7 +174,11 @@ input {
   padding: 2px;
   background-color: #fff;
   outline:none;
+  border-style: solid;
+  border: 1px solid;
+  border-radius: 2px;
 }
+
 //main.ejs form ----------
 .add-item-form {
   display: flex;
@@ -191,23 +191,23 @@ input {
   width: 24rem;
 }
 //login.ejs form ----------
-#login-form h3{
-  margin: 5px 0 1.5rem 0;
+.log-reg-form h3{
+  margin: 5px 0 1.7rem 0;
   color: $darkblue;
 }
 
-#login-form {
+.log-reg-form {
   overflow: hidden;
-  padding:14px ;
+  padding: 14px ;
   border: 1px solid $lightblue;
   max-width:300px;
   margin: 10px auto;
   background: $form-bkg;
 }
-#login-form div {
+.log-reg-form div {
   margin-bottom: 1.1rem;
 }
-#login-form div input, #login-form button {
+.log-reg-form div input, .log-reg-form button {
   float: right;
 }
 
