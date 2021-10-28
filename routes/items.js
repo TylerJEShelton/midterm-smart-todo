@@ -74,5 +74,20 @@ module.exports = (db) => {
     res.render("items-new", templateVars);
   });
 
+  router.post("/new", (req, res) => {
+    if (!req.session.email) {
+      res.redirect("/login");
+      return;
+    }
+    let user = null;
+    if (req.session.first_name) {
+      user = { first_name: req.session.first_name };
+    }
+
+    const key = req.body.key;
+    const templateVars = { key, user };
+    res.render("items-new1", templateVars);
+  });
+
   return router;
 };
