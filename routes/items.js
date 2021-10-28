@@ -80,8 +80,11 @@ module.exports = (db) => {
         const book = results;
         moviedb.searchMovie({ query: key }).then((results1) => {
           const movie = results1.results[0];
-          const movieImg =
-            "https://image.tmdb.org/t/p/" + "w200" + movie.poster_path;
+          let movieImg = null;
+          if (movie) {
+            movieImg =
+              "https://image.tmdb.org/t/p/" + "w200" + movie.poster_path;
+          }
           client
             .search({
               term: key,
