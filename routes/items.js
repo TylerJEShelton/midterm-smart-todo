@@ -33,6 +33,8 @@ module.exports = (db) => {
             products: data[3].rows,
             other: data[4].rows,
           };
+          console.log(data[0].rows);
+          
           let user = null;
 
           if (req.session.first_name) {

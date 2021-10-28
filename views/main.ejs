@@ -34,7 +34,7 @@
         <div id="films-containers" class="containers padding5">
           <ul class="list-table">
             <% for (const film of films) { %>
-              <li class="list-row">
+              <li class="list-row" data-id="<%= film.id %>">
                 <%= film.title %>
               </li>
               <% } %>
@@ -49,7 +49,7 @@
         <div id="food-container" class="containers padding5">
           <ul class="list-table">
             <% for (let restaurant of restaurants) { %>
-              <li class="list-row">
+              <li class="list-row" data-id="<%= restaurant.id %>">
                 <%= restaurant.title %>
               </li>
               <% } %>
@@ -64,7 +64,7 @@
         <div id="books-container" class="containers padding5">
           <ul class="list-table">
             <% for (let book of books) { %>
-              <li class="list-row">
+              <li class="list-row" data-id="<%= book.id %>">
                 <%= book.title %>
               </li>
               <% } %>
@@ -79,7 +79,7 @@
         <div id="products-container" class="containers padding5">
           <ul class="list-table">
             <% for (let product of products) { %>
-              <li class="list-row">
+              <li class="list-row" data-id="<%= product.id %>">
                 <%= product.title %>
               </li>
               <% } %>
@@ -94,7 +94,7 @@
         <div id="other-container" class="containers padding5">
           <ul class="list-table">
             <% for (let item of other) { %>
-              <li class="list-row">
+              <li class="list-row" data-id="<%= item.id %>">
                 <%= item.title %>
               </li>
               <% } %>
@@ -103,6 +103,14 @@
       </section>
     </section>
   </main>
+
+  <!-- Jquery CDN link -->
+<!--   <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous">
+  </script>
+ -->
 </body>
 
 
