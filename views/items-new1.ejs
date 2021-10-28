@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Smart ToDo - Registration</title>
+
+  <!-- External JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <!-- App JS -->
+  <script type="text/javascript" src="/scripts/app.js"></script>
+
+</head>
+
+<body>
+
+  <%- include('partials/_header') %>
+
+  <main>
+    <h2>Search by keyword</h2>
+      <form action="/items/new" method="POST">
+        <label for="key">Enter Key Word</label>
+        <dev>
+          <ul id='list'>
+            <input id="key" type="text" name="key" placeholder="Enter your keyword">
+            <button type="submit" class="btn btn-primary">Search</button>
+            <% if (book) { %>
+            <li>Book Title:  <%= book[0].title %> </li>
+            <li>Author: <%= book[0].authors %></li>
+            <li><img src='<%= book[0].thumbnail %>'></li>
+            <% } %>
+            <% if (movie) { %>
+            <li>Movie Title: <%= movie.title %></li>
+            <li>Rate: <%= movie.vote_average %></li>
+            <li><img src='<%= movieImg %>'></li>
+            <% } %>
+            <% if (restaurant) { %>
+            <li>Restaurant Title: <%= restaurant.name %></li>
+            <li>Rate: <%= restaurant.rating %></li>
+            <li><img src='<%= restaurant.image_url %>' width="300px"></li>
+            <% } %>
+        </ul>
+        </dev>
+      </form>
+      <dev>ahhahah</dev>
+</body>
+
+</html>
