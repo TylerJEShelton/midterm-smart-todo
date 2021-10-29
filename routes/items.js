@@ -26,6 +26,7 @@ module.exports = (db) => {
           getItemsByCategory(db, curUserId, 4),
           getItemsByCategory(db, curUserId, 5),
         ]).then((data) => {
+          // console.log("data", data);
           const templateVars = {
             films: data[0].rows,
             restaurants: data[1].rows,
@@ -33,7 +34,6 @@ module.exports = (db) => {
             products: data[3].rows,
             other: data[4].rows,
           };
-          console.log(data[0].rows);
           
           let user = null;
 

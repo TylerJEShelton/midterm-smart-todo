@@ -34,7 +34,7 @@
         <div id="films-containers" class="containers padding5">
           <ul class="list-table">
             <% for (const film of films) { %>
-              <li class="list-row" data-id="<%= film.id %>">
+              <li class="list-row" data-item-id="<%= film.id %>" data-category-id="<%= film.category_id %>" data-cat="films">
                 <%= film.title %>
               </li>
               <% } %>
@@ -49,7 +49,7 @@
         <div id="food-container" class="containers padding5">
           <ul class="list-table">
             <% for (let restaurant of restaurants) { %>
-              <li class="list-row" data-id="<%= restaurant.id %>">
+              <li class="list-row" data-item-id="<%= restaurant.id %>" data-category-id="<%= restaurant.category_id %>" data-cat="restaurants">
                 <%= restaurant.title %>
               </li>
               <% } %>
@@ -64,7 +64,7 @@
         <div id="books-container" class="containers padding5">
           <ul class="list-table">
             <% for (let book of books) { %>
-              <li class="list-row" data-id="<%= book.id %>">
+              <li class="list-row" data-item-id="<%= book.id %>" data-category-id="<%= book.category_id %>" data-cat="books">
                 <%= book.title %>
               </li>
               <% } %>
@@ -79,7 +79,7 @@
         <div id="products-container" class="containers padding5">
           <ul class="list-table">
             <% for (let product of products) { %>
-              <li class="list-row" data-id="<%= product.id %>">
+              <li class="list-row" data-item-id="<%= product.id %>" data-category-id="<%= product.category_id %>" data-cat="products">
                 <%= product.title %>
               </li>
               <% } %>
@@ -94,7 +94,7 @@
         <div id="other-container" class="containers padding5">
           <ul class="list-table">
             <% for (let item of other) { %>
-              <li class="list-row" data-id="<%= item.id %>">
+              <li class="list-row" data-item-id="<%= item.id %>" data-category-id="<%= item.category_id %>" data-cat="other">
                 <%= item.title %>
               </li>
               <% } %>
@@ -102,7 +102,27 @@
         </div>
       </section>
     </section>
+
   </main>
+
+  <!-- popup to edit category -->
+
+  <div id="popup" class="br5">
+    <div class="close">&#10006;</div>
+     <h4 class="">Change Category</h4> 
+
+     <form id="change-categ-form" action="">
+       <select name="new-category" id="select-cat">
+        <option value="select">Select</option>
+       </select>
+       <button type="submit" class="btn-green">Move</button>
+     </form>
+
+  </div>
+
+<!-- dark overlay -->
+  <div id="overlay"></div>
+
 
   <!-- Jquery CDN link -->
 <!--   <script
