@@ -81,31 +81,52 @@ module.exports = (db) => {
     const key = req.body.key;
     books.search(key, function (error, results) {
       if (!error) {
-        const book = results;
+        const book = {
+          a: results[0],
+          b: results[1],
+          c: results[2],
+          d: results[3],
+        };
         moviedb.searchMovie({ query: key }).then((results1) => {
-          const movie = results1.results[0];
-          let movieImg = null;
-          if (movie) {
-            movieImg =
-              "https://image.tmdb.org/t/p/" + "w200" + movie.poster_path;
+          const movie = {
+            a: results1.results[0],
+            b: results1.results[1],
+            c: results1.results[2],
+            d: results1.results[3],
+          };
+          let movieImg = {};
+          for (let i in movie) {
+            if (movie[i]) {
+              movieImg[i] =
+                "https://image.tmdb.org/t/p/" + "w200" + movie[i].poster_path;
+            }
           }
           client
             .search({
               term: key,
-              latitude: 43.89925,
-              longitude: -79.259125,
+              latitude: 43.65391,
+              longitude: -79.38429,
             })
             .then((results2) => {
-              const restaurant = JSON.parse(results2.body).businesses[0];
+              const restaurant = {
+                a: JSON.parse(results2.body).businesses[0],
+                b: JSON.parse(results2.body).businesses[1],
+                c: JSON.parse(results2.body).businesses[2],
+                d: JSON.parse(results2.body).businesses[3],
+              };
               const user = loginChecker(req, res);
               const templateVars = { user, book, movie, movieImg, restaurant };
-              res.render("items-new1", templateVars);
+              res.render("items-new-result", templateVars);
             });
         });
       } else {
         console.log(error);
       }
     });
+  });
+
+  router.post("/add", (req, res) => {
+    console.log(req.body);
   });
 
   router.post("/update-category", async (req, res) => {
@@ -116,6 +137,5 @@ module.exports = (db) => {
     res.redirect("/items");
   });
 
-  
-  return router;
+    return router;
 };

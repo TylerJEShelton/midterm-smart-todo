@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Smart ToDo - Registration</title>
+
+  <!-- External JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <!-- App JS -->
+  <script type="text/javascript" src="/scripts/app.js"></script>
+
+</head>
+
+<body>
+
+  <%- include('partials/_header') %>
+
+  <main>
+    <h2>Search by keyword</h2>
+      <form action="/items/new" method="POST">
+        <label for="key">Enter Key Word</label>
+        <input id="key" type="text" name="key" placeholder="Enter your keyword">
+        <button type="submit" class="btn btn-primary">Search</button>
+      </form>
+        <table>
+          <tr>
+            <th width="30%">Books</th>
+            <th width="30%">Movies</th>
+            <th width="30%">Restaurants</th>
+          </tr>
+          <tr>
+            <td>
+              <% if (book.a) { %>
+                <div id="book1"><%= book.a.title %></div>
+              <% } %>
+            </td>
+            <td>
+              <% if (movie.a) { %>
+                <div id="movie1"><%= movie.a.title %></div>
+              <% } %>
+            </td>
+            <td>
+            <% if (restaurant.a) { %><div id="restaurant1"><%= restaurant.a.name %></div>
+            <% } %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <% if (book.a) { %>
+                Author: <%= book.a.authors %>
+              <% } %>
+            </td>
+            <td>
+              <% if (movie.a) { %>
+                Rating: <%= movie.a.vote_average %>
+              <% } %>
+            </td>
+            <td>
+              <% if (restaurant.a) { %>
+                Rating: <%= restaurant.a.rating %>
+              <% } %>
+              </td>
+          </tr>
+          <tr>
+            <td>
+              <% if (book.a) { %>
+                <img src='<%= book.a.thumbnail %>' width="40%" height="auto">
+              <% } %>
+            </td>
+            <td>
+              <% if (movie.a) { %>
+                <img src='<%= movieImg.a %>' width="40%" height="auto">
+              <% } %>
+            </td>
+            <td>
+              <% if (restaurant.a) { %>
+                <img src='<%= restaurant.a.image_url %>' width="40%" height="auto">
+              <% } %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+                <button type="submit" class="add-from-result1">Add to ToDo</button>
+            </td>
+            <td>
+                <button type="submit" class="add-from-result2">Add to ToDo</button>
+            </td>
+            <td>
+                <button type="submit" class="add-from-result3">Add to ToDo</button>
+            </td>
+          </tr>
+        </table>
+
+
+</body>
+
+</html>
