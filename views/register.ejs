@@ -4,6 +4,9 @@
 <head>
   <title>Smart ToDo - Registration</title>
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/formvalid.js"></script>
 </head>
 
 <body>
@@ -12,6 +15,7 @@
 
   <main id="main-register">
     <div class="form-group mb-2">
+
       <form action="/register?_method=PUT" method="POST" class="log-reg-form br5">
         <h3 class="center">Create An Account</h3>
         <div>
@@ -27,9 +31,10 @@
           <input class="form-control" type="password" name="password" placeholder="Enter your password">
         </div>
         <div id="errors"></div>
-        <div>
+        <div class="clear-after">
           <button class="btn-green" type="submit" class="btn btn-primary">Register</button>
         </div>
+        <div class="form-error-div"></div>
       </form>
       <div class="center">
         <a href="/login">Already have an account? Click here to login!</a>

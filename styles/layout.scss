@@ -19,7 +19,7 @@ $logo-color: #193faf;
 $border-color: #5d6f83;
 $link-color: #3f67b5;
 $form-bkg: #f5faff;
-$error-color: #cc7110;
+$error-color: #ac1fa0;
 
 //Helpers------------
 .center{text-align: center;}
@@ -27,6 +27,11 @@ $error-color: #cc7110;
 .padding2 {padding: 2px;}
 .br5{border-radius: 5px;}
 .highlight-text {color: $darkblue;}
+.clear-after::after {
+  content: "";
+  clear: both;
+  display: table;
+}
 
 
 h1, h2, h3, h4 {
@@ -35,7 +40,7 @@ h1, h2, h3, h4 {
 hr{
   border:none;
   height: 1px;
-  background:  rgb(194, 195, 199);
+  background:  rgb(178, 179, 182);
 }
 // Links -------------
 a {
@@ -104,6 +109,9 @@ span#loggedin-user{
   width: 10%;
   display: flex;
   justify-content: space-between;
+}
+.nav-login-div a:first-child, .nav-link-div a:first-child{
+  margin-right: 7px;
 }
 
 /* Main Body in the main.ejs ---------- */
@@ -251,7 +259,7 @@ input, select, option {
 .form-error-div {
   margin-top: 12px;
   border-radius: 3px;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 }
 .form-error {
   border: 1px solid $error-color;
