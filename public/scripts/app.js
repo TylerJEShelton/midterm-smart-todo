@@ -5,7 +5,7 @@ $(document).ready(function() {
       $(this).css("color", "white");
     });
 
-  //listeners for <li> in main.js and console log value of data-id
+  //listeners for <li> tag in the main.js
     $("li.list-row").on("click", function(e) {
       console.log("item-id", $(this).attr("data-item-id"));
       console.log("category-id", $(this).attr("data-category-id"));
@@ -49,13 +49,20 @@ $(document).ready(function() {
     $('#popup-descr').remove();
   });
 
-  //close popup clicking on X
-/*   $(document).on('click',function(e){
-    if(!(($(e.target).closest("#popup").length > 0 ) || ($(e.target).closest(".close").length > 0))){
-      $('#popup').hide();
-      $('#overlay').hide();
-     }
+  //validate popup for
+  $("#change-categ-form").on("submit", function (e) {
+    console.log($('#select-cat option:selected').val());
+    
+    if ($('#select-cat option:selected').val() == 'select') {
+      e.preventDefault();
+      $('div.form-error-div').text('You can do better! Please select an option from the Dropdown list.')
+
+      $('#form-error-div').addClass('form-error').html("Please fill out all the fields");
+    } 
+    // else{
+    //   $('#form-error-div').removeClass('form-error');
+    //   $("#log-form").submit();
+    // }
   });
- */
 
 });//closing doc ready
