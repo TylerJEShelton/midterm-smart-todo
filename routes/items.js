@@ -108,7 +108,6 @@ module.exports = (db) => {
     });
   });
 
-  //update category
   router.post("/update-category", async (req, res) => {
     const newCat = req.body.new_category;
     const userId = req.body.userid;

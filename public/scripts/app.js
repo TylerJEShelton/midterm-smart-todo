@@ -61,11 +61,19 @@ $(document).ready(function() {
     
     if ($('#select-cat option:selected').val() == 'select') {
       e.preventDefault();
-      $('div.form-error-div').addClass('form-error').append(`
+      $('div.form-error-div').empty().addClass('form-error').append(`
         <span>You can do better &#128512; 
         <span> Please select an option from the Dropdown list above."</span>
       ` );
+    } 
+  });
+
+  //remove error on selecting category
+  $("#select-cat").on("change", function (e) {
+    if ($('#select-cat option:selected').val() != 'select') {
+      $('div.form-error-div').empty().removeClass('form-error');
     }
   });
+
 
 });//closing doc ready
