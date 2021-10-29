@@ -7,7 +7,8 @@ module.exports = (db) => {
     getUserByEmail,
     getCategoryId,
     loginChecker,
-    updateCategory
+    updateCategory,
+    deleteItem
   } = require("../lib/data_helpers");
 
   const { books } = require("../APIs/googleBooks");
@@ -137,5 +138,12 @@ module.exports = (db) => {
     res.redirect("/items");
   });
 
-    return router;
+  router.post("/delete-item", async (req, res) => {
+    const userId = req.body.userid;
+    const itemId = req.body.itemid;
+    await deleteItem(db, userId, itemId)
+    res.redirect("/items");
+  });
+    
+  return router;
 };
