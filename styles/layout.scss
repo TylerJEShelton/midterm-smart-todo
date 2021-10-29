@@ -15,6 +15,7 @@ body {
 //Helpers------------
 .center{text-align: center;}
 .padding5 {padding: 5px;}
+.padding2 {padding: 2px;}
 .br5{border-radius: 5px;}
 
 // Colors ------------
@@ -29,7 +30,11 @@ $error-color: #cc7110;
 h1, h2, h3, h4 {
   margin: 1rem 0;
 }
-
+hr{
+  border:none;
+  height: 1px;
+  background:  rgb(194, 195, 199);
+}
 // Links -------------
 a {
   text-decoration: none;
@@ -142,9 +147,14 @@ span#loggedin-user{
   margin: 0.2rem 0rem;
 }
 
-.list-row {
-  padding-bottom: 1rem;
+li.list-row {
+  padding: 0.5rem 3px;
+  &:hover {
+    cursor: pointer;
+    border: 1px solid $lightblue;
+  }
 }
+.list-row span:nth-child(2) {float:right;}
 
 /* Main Body in the register.ejs ---------- */
 #main-register {
@@ -164,6 +174,9 @@ button {
   border: 1px solid rgb(211, 135, 145);
   border-radius: 2px;
   &:hover {
+    background: rgb(233, 197, 202);
+    }
+  &:active {
     color:white;
     background: rgb(187, 91, 104);
     }
@@ -173,6 +186,9 @@ button {
   border: 1px solid  rgb(26, 155, 93);
   border-radius: 2px;
   &:hover {
+    background: rgb(183, 226, 206);
+    }
+  &:active {
     background:  rgb(15, 139, 79);
     color: white;
   }
@@ -198,9 +214,6 @@ input, select, option {
 .add-description-input {
   width: 24rem;
 }
-.list-row span:nth-child(2) {float:right;}
-li.list-row {cursor: pointer;}
-
 
 //login.ejs form ----------
 .log-reg-form h3{
@@ -260,7 +273,7 @@ li.list-row {cursor: pointer;}
   color: pink;
   font-size: 1.5rem;
   cursor: pointer;
-  padding: 3px;
+  padding: 2px 6px;
 }
 #overlay {
   display: none;

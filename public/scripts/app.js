@@ -11,10 +11,10 @@ $(document).ready(function() {
       // console.log("user-id", $(this).attr("data-user-id"));
 
       $('#popup').fadeIn(200);
-      $('#overlay').show();
+      $('#overlay').fadeIn(100);
 
     //add description to a form
-    let itemString = $(this).find(">:first-child").html();
+    let itemString = $(this).children(":first").html();
     
     $('#change-categ-form').prepend(`
       <p id="popup-descr"> Move item <span id="item-to-move">"${itemString}"</span> into a Category: </p> 
