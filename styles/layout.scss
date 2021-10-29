@@ -12,12 +12,6 @@ body {
   font-size: 16px;
   font-family:  sans-serif;
 }
-//Helpers------------
-.center{text-align: center;}
-.padding5 {padding: 5px;}
-.padding2 {padding: 2px;}
-.br5{border-radius: 5px;}
-
 // Colors ------------
 $darkblue: #215ea3;
 $lightblue: #7eade2;
@@ -26,6 +20,14 @@ $border-color: #5d6f83;
 $link-color: #3f67b5;
 $form-bkg: #f5faff;
 $error-color: #cc7110;
+
+//Helpers------------
+.center{text-align: center;}
+.padding5 {padding: 5px;}
+.padding2 {padding: 2px;}
+.br5{border-radius: 5px;}
+.highlight-text {color: $darkblue;}
+
 
 h1, h2, h3, h4 {
   margin: 1rem 0;
@@ -193,6 +195,10 @@ button {
     color: white;
   }
 }
+#change-categ-form button, #delete-item-form button{
+  float:right;
+  margin-right: 12px;
+}
 
 // FORMS =================
 input, select, option {
@@ -265,7 +271,6 @@ input, select, option {
   background: #fff;
   padding: 10px;
 }
-#item-to-move {color: $darkblue;}
 #select-cat {margin-right:1rem;}
 .close {
   border: 1px solid pink;

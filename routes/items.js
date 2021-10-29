@@ -7,7 +7,8 @@ module.exports = (db) => {
     getUserByEmail,
     getCategoryId,
     loginChecker,
-    updateCategory
+    updateCategory,
+    deleteItem
   } = require("../lib/data_helpers");
 
   const { books } = require("../APIs/googleBooks");
@@ -113,6 +114,13 @@ module.exports = (db) => {
     const userId = req.body.userid;
     const itemId = req.body.itemid;
     await updateCategory(db, newCat, userId, itemId)
+    res.redirect("/items");
+  });
+
+  router.post("/delete-item", async (req, res) => {
+    const userId = req.body.userid;
+    const itemId = req.body.itemid;
+    await deleteItem(db, userId, itemId)
     res.redirect("/items");
   });
 
