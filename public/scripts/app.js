@@ -7,26 +7,26 @@ $(".add-from-result1").click(function() {
     url: "/items/add",
     data: out,
     dataType: "Object"
-  })
-})
+  });
+});
 $(".add-from-result2").click(function() {
   let out = {movie1: $("#movie1").text()}
   $.post({
     url: "/items/add",
     data: out,
     dataType: "Object"
-  })
-})
+  });
+});
 $(".add-from-result3").click(function() {
   let out = {restaurant1: $("#restaurant1").text()}
   $.post({
     url: "/items/add",
     data: out,
     dataType: "Object"
-  })
-})
+  });
+});
 
-//Changin item Category ---------------------
+//Changing item Category ---------------------
 //listeners for <li> tag in the main.js
   $("li.list-row").on("click", function(e) {
     // console.log("item-id", $(this).attr("data-item-id"));
