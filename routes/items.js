@@ -7,13 +7,16 @@ module.exports = (db) => {
     getUserByEmail,
     getCategoryId,
     loginChecker,
+    updateCategory
   } = require("../lib/data_helpers");
 
   const { books } = require("../APIs/googleBooks");
   const { moviedb } = require("../APIs/TMDB");
   const { client } = require("../APIs/yelp");
 
+
   router.get("/", (req, res) => {
+     
     if (req.session.email) {
       let email = req.session.email;
       getUserByEmail(db, email).then((responce) => {
@@ -26,7 +29,6 @@ module.exports = (db) => {
           getItemsByCategory(db, curUserId, 4),
           getItemsByCategory(db, curUserId, 5),
         ]).then((data) => {
-          // console.log("data", data);
           const templateVars = {
             films: data[0].rows,
             restaurants: data[1].rows,
@@ -106,5 +108,15 @@ module.exports = (db) => {
     });
   });
 
+  //update category
+  router.post("/update-category", async (req, res) => {
+    const newCat = req.body.new_category;
+    const userId = req.body.userid;
+    const itemId = req.body.itemid;
+    await updateCategory(db, newCat, userId, itemId)
+    res.redirect("/items");
+  });
+
+  
   return router;
 };

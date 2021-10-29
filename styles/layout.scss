@@ -24,6 +24,11 @@ $logo-color: #193faf;
 $border-color: #5d6f83;
 $link-color: #3f67b5;
 $form-bkg: #f5faff;
+$error-color: #cc7110;
+
+h1, h2, h3, h4 {
+  margin: 1rem 0;
+}
 
 // Links -------------
 a {
@@ -123,10 +128,12 @@ span#loggedin-user{
 }
 
 .list {
-  width: 12rem;
+  min-width: 12rem;
+  max-width: 14rem;
   margin: 12px;
   box-shadow:  0 1px 3px 0 rgba(200, 213, 239, 0.87);
   border-radius: 3px;
+  flex-grow: 0.5;
 }
 
 .list-table {
@@ -191,6 +198,10 @@ input, select, option {
 .add-description-input {
   width: 24rem;
 }
+.list-row span:nth-child(2) {float:right;}
+li.list-row {cursor: pointer;}
+
+
 //login.ejs form ----------
 .log-reg-form h3{
   margin: 5px 0 1.7rem 0;
@@ -217,8 +228,17 @@ input, select, option {
     box-shadow:  0 0 2px 2px rgba(200, 213, 239, 0.87);
 }
 }
+//Form Errors -------
 .form-error-div {
-  
+  margin-top: 12px;
+  border-radius: 3px;
+  font-size: 0.9rem;
+}
+.form-error {
+  border: 1px solid $error-color;
+  color: $error-color;
+  padding: 3px;
+  border-radius: 2px;
 }
 
 // Pop up window ---------
@@ -233,10 +253,10 @@ input, select, option {
   padding: 10px;
 }
 #item-to-move {color: $darkblue;}
-#select-cat {margin-right:0.5rem;}
+#select-cat {margin-right:1rem;}
 .close {
   border: 1px solid pink;
-  position: absolute; right: 0; top: 0;
+  position: absolute; right: 2px; top: 2px;
   color: pink;
   font-size: 1.5rem;
   cursor: pointer;
@@ -247,8 +267,8 @@ input, select, option {
   position: fixed; left:0; top:0;
   height: 100vh; width: 100vw;
   z-index: 2;
-  background-color: rgb(236, 235, 236);
-  opacity: 0.5;
+  background-color: rgb(196, 197, 199);
+  opacity: 0.7;
 }
 
 

@@ -19,6 +19,7 @@ module.exports = (db) => {
     }
     const templateVars = { user };
     res.render("login", templateVars);
+    console.log("req.session", req.session); 
   });
 
   router.post("/", (req, res) => {

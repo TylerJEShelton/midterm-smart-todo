@@ -7,62 +7,65 @@ $(document).ready(function() {
 
   //listeners for <li> tag in the main.js
     $("li.list-row").on("click", function(e) {
-      console.log("item-id", $(this).attr("data-item-id"));
-      console.log("category-id", $(this).attr("data-category-id"));
-      console.log($(this).html());
-      
+      // console.log("item-id", $(this).attr("data-item-id"));
+      // console.log("user-id", $(this).attr("data-user-id"));
 
-      $('#popup').show();
+      $('#popup').fadeIn(200);
       $('#overlay').show();
 
-    //add description
+    //add description to a form
+    let itemString = $(this).find(">:first-child").html();
+    
     $('#change-categ-form').prepend(`
-      <p id="popup-descr"> Move item <span id="item-to-move">"${$(this).html()}"</span> into a Category: </p> 
+      <p id="popup-descr"> Move item <span id="item-to-move">"${itemString}"</span> into a Category: </p> 
+    `);
+    //add hidden field to the form
+    $('#change-categ-form').append(`
+      <input type="hidden" name="userid" value="${$(this).attr("data-user-id")}">       
+      <input type="hidden" name="itemid" value="${$(this).attr("data-item-id")}">       
     `);
 
     //add Select drop down:
     const currentCat = $(this).attr("data-cat");
-    console.log(currentCat);
+    // console.log(currentCat);
+    $('#select-cat').append('<option value="select">Select</option>');
     
     if (currentCat != 'films') {
-      $('#select-cat').append('<option value="films">Films</option>');
+      $('#select-cat').append('<option value="1">Films</option>');
     }
     if (currentCat != 'restaurants') {
-      $('#select-cat').append('<option value="restaurants">Restaurants</option>');
+      $('#select-cat').append('<option value="2">Restaurants</option>');
     }
     if (currentCat != 'books') {
-      $('#select-cat').append('<option value="books">Books</option>');
+      $('#select-cat').append('<option value="3">Books</option>');
     }
     if (currentCat != 'products') {
-      $('#select-cat').append('<option value="products">Products</option>');
+      $('#select-cat').append('<option value="4">Products</option>');
     }
     if (currentCat != 'other') {
-      $('#select-cat').append('<option value="other">Other</option>');
+      $('#select-cat').append('<option value="5">Other</option>');
     }
   });
 
-  //close popup clicking on X
+  //close popup clicking on X, remove some form elements
   $("div.close").on("click", function() {
     $('#popup').hide();
     $('#overlay').hide();
     $('#select-cat').empty();
+    $("input[type|='hidden']").remove();
     $('#popup-descr').remove();
   });
 
   //validate popup for
   $("#change-categ-form").on("submit", function (e) {
-    console.log($('#select-cat option:selected').val());
     
     if ($('#select-cat option:selected').val() == 'select') {
       e.preventDefault();
-      $('div.form-error-div').text('You can do better! Please select an option from the Dropdown list.')
-
-      $('#form-error-div').addClass('form-error').html("Please fill out all the fields");
-    } 
-    // else{
-    //   $('#form-error-div').removeClass('form-error');
-    //   $("#log-form").submit();
-    // }
+      $('div.form-error-div').addClass('form-error').append(`
+        <span>You can do better &#128512; 
+        <span> Please select an option from the Dropdown list above."</span>
+      ` );
+    }
   });
 
 });//closing doc ready

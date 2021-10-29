@@ -34,8 +34,8 @@
         <div id="films-containers" class="containers padding5">
           <ul class="list-table">
             <% for (const film of films) { %>
-              <li class="list-row" data-item-id="<%= film.id %>" data-category-id="<%= film.category_id %>" data-cat="films">
-                <%= film.title %>
+              <li class="list-row" data-item-id="<%= film.id %>"  data-cat="films" data-user-id="<%= film.user_id %>">
+               <span><%= film.title %></span>  <span>&#9776;</span>
               </li>
               <% } %>
           </ul>
@@ -49,8 +49,8 @@
         <div id="food-container" class="containers padding5">
           <ul class="list-table">
             <% for (let restaurant of restaurants) { %>
-              <li class="list-row" data-item-id="<%= restaurant.id %>" data-category-id="<%= restaurant.category_id %>" data-cat="restaurants">
-                <%= restaurant.title %>
+              <li class="list-row" data-item-id="<%= restaurant.id %>"  data-cat="restaurants" data-user-id="<%= restaurant.user_id %>">
+               <span><%= restaurant.title %></span> <span>&#9776;</span>
               </li>
               <% } %>
           </ul>
@@ -64,8 +64,8 @@
         <div id="books-container" class="containers padding5">
           <ul class="list-table">
             <% for (let book of books) { %>
-              <li class="list-row" data-item-id="<%= book.id %>" data-category-id="<%= book.category_id %>" data-cat="books">
-                <%= book.title %>
+              <li class="list-row" data-item-id="<%= book.id %>"  data-cat="books" data-user-id="<%= book.user_id %>">
+               <span><%= book.title %></span>  <span>&#9776;</span>
               </li>
               <% } %>
           </ul>
@@ -79,8 +79,8 @@
         <div id="products-container" class="containers padding5">
           <ul class="list-table">
             <% for (let product of products) { %>
-              <li class="list-row" data-item-id="<%= product.id %>" data-category-id="<%= product.category_id %>" data-cat="products">
-                <%= product.title %>
+              <li class="list-row" data-item-id="<%= product.id %>"  data-cat="products" data-user-id="<%= product.user_id %>">
+              <span><%= product.title %></span>  <span>&#9776;</span>
               </li>
               <% } %>
           </ul>
@@ -94,8 +94,8 @@
         <div id="other-container" class="containers padding5">
           <ul class="list-table">
             <% for (let item of other) { %>
-              <li class="list-row" data-item-id="<%= item.id %>" data-category-id="<%= item.category_id %>" data-cat="other">
-                <%= item.title %>
+              <li class="list-row" data-item-id="<%= item.id %>"  data-cat="other" data-user-id="<%= item.user_id %>">
+               <span><%= item.title %></span>  <span>&#9776;</span>
               </li>
               <% } %>
           </ul>
@@ -109,15 +109,14 @@
 
   <div id="popup" class="br5">
     <div class="close">&#10006;</div>
-     <h4 class="">Change Category</h4> 
+     <h3 class="">Change Category</h3> 
 
-     <form id="change-categ-form" action="">
-       <select name="new-category" id="select-cat">
-        <option value="select">Select</option>
+     <form id="change-categ-form" method="post" action="items/update-category">
+       <select name="new_category" id="select-cat">
        </select>
        <button type="submit" class="btn-green">Move</button>
-       <div class="form-error-div"></div>
-     </form>
+    </form>
+    <div class="form-error-div"></div>
 
   </div>
 
