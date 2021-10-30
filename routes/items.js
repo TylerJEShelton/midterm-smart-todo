@@ -8,16 +8,14 @@ module.exports = (db) => {
     getCategoryId,
     loginChecker,
     updateCategory,
-    deleteItem
+    deleteItem,
   } = require("../lib/data_helpers");
 
   const { books } = require("../APIs/googleBooks");
   const { moviedb } = require("../APIs/TMDB");
   const { client } = require("../APIs/yelp");
 
-
   router.get("/", (req, res) => {
-
     if (req.session.email) {
       let email = req.session.email;
       getUserByEmail(db, email).then((responce) => {
@@ -80,7 +78,7 @@ module.exports = (db) => {
 
   router.post("/new", (req, res) => {
     const key = req.body.key;
-    books.search(key, function(error, results) {
+    books.search(key, function (error, results) {
       if (!error) {
         const book = {
           a: results[0],
@@ -127,21 +125,50 @@ module.exports = (db) => {
   });
 
   router.post("/add", (req, res) => {
-    console.log(req.body);
+    const items = req.body;
+    let item_title = "";
+    let item_category_id = 0;
+    for (let i in items) {
+      if (i === "book") {
+        item_title = items[i];
+        item_category_id = 3;
+      }
+      if (i === "movie") {
+        item_title = items[i];
+        item_category_id = 1;
+      }
+      if (i === "restaurant") {
+        item_title = items[i];
+        item_category_id = 2;
+      }
+    }
+    const email = req.session.email;
+    getUserByEmail(db, email).then((responce) => {
+      let user = responce.rows[0];
+      const title = item_title;
+      const userId = user.id;
+      const categoryId = item_category_id;
+      const dateAdded = new Date().toISOString().slice(0, 19).replace("T", " ");
+
+      const queryString = `INSERT INTO items (title, user_id, category_id, date_added) VALUES ($1, $2, $3, $4);`;
+      const queryParams = [title, userId, categoryId, dateAdded];
+
+      db.query(queryString, queryParams).then((data) => {});
+    });
   });
 
   router.post("/update-category", async (req, res) => {
     const newCat = req.body.new_category;
     const userId = req.body.userid;
     const itemId = req.body.itemid;
-    await updateCategory(db, newCat, userId, itemId)
+    await updateCategory(db, newCat, userId, itemId);
     res.redirect("/items");
   });
 
   router.post("/delete-item", async (req, res) => {
     const userId = req.body.userid;
     const itemId = req.body.itemid;
-    await deleteItem(db, userId, itemId)
+    await deleteItem(db, userId, itemId);
     res.redirect("/items");
   });
 
