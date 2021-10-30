@@ -14,10 +14,11 @@ module.exports = (db) => {
 
   router.get("/", (req, res) => {
     let user = null;
+    let error = null;
     if (req.session.first_name) {
       user = { first_name: req.session.first_name };
     }
-    const templateVars = { user };
+    const templateVars = { user, error };
     res.render("login", templateVars);
     // console.log("req.session", req.session); 
   });
@@ -30,8 +31,26 @@ module.exports = (db) => {
         res.status(400).send("email cannot be empty");
         return;
       }
+      //non-registered email
       if (!user) {
-        res.status(400).send("email not registered");
+        let user = null;
+        if (req.session.first_name) {
+          user = { first_name: req.session.first_name };
+        }    
+        const templateVars = { user: user, error: "email not registered" };
+        res.render("login", templateVars);
+        // res.status(400).send("email not registered");
+        return;
+      }
+      //incorrect password
+      if (!bcrypt.compareSync(req.body.password, user.password)) {
+        let user = null;
+        if (req.session.first_name) {
+          user = { first_name: req.session.first_name };
+        }    
+        const templateVars = { user: user, error: "incorrect email or password" };
+        res.render("login", templateVars);
+        // res.status(403).send("incorrect email or password");
         return;
       }
       if (req.body.password === "") {
@@ -42,10 +61,6 @@ module.exports = (db) => {
         req.session.first_name = user.first_name;
         req.session.email = user.email;
         res.redirect("/items");
-        return;
-      }
-      if (!bcrypt.compareSync(req.body.password, user.password)) {
-        res.status(403).send("incorrect password");
         return;
       }
     });
