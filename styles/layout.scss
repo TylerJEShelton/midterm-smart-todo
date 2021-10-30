@@ -277,7 +277,7 @@ input, select, option {
   border: 1px solid $darkblue;
   position: fixed; top: 50%; left: 50%;
   transform: translate(-50%, -50%);
-  width: 300px; height: 300px;
+  width: 300px; min-height: 300px;
   z-index: 3;
   background: #fff;
   padding: 10px;
