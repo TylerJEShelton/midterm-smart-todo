@@ -53,21 +53,23 @@ module.exports = (db) => {
 
   router.post("/", (req, res) => {
     let email = req.session.email;
-    getUserByEmail(db, email).then((responce) => {
-      let user = responce.rows[0];
-      const title = req.body.title;
-      const userId = user.id;
-      const categoryId = getCategoryId(title);
-      const dateAdded = new Date().toISOString().slice(0, 19).replace("T", " ");
-      const description = req.body.description;
+    if (req.body.title) {
+      getUserByEmail(db, email).then((responce) => {
+        let user = responce.rows[0];
+        const title = req.body.title;
+        const userId = user.id;
+        const categoryId = getCategoryId(title);
+        const dateAdded = new Date().toISOString().slice(0, 19).replace("T", " ");
+        const description = req.body.description;
 
-      const queryString = `INSERT INTO items (title, user_id, category_id, date_added, description) VALUES ($1, $2, $3, $4, $5);`;
-      const queryParams = [title, userId, categoryId, dateAdded, description];
+        const queryString = `INSERT INTO items (title, user_id, category_id, date_added, description) VALUES ($1, $2, $3, $4, $5);`;
+        const queryParams = [title, userId, categoryId, dateAdded, description];
 
-      db.query(queryString, queryParams).then((data) => {
-        res.redirect("/");
+        db.query(queryString, queryParams).then((data) => {
+          res.redirect("/");
+        });
       });
-    });
+    }
   });
 
   router.get("/new", (req, res) => {
@@ -78,7 +80,7 @@ module.exports = (db) => {
 
   router.post("/new", (req, res) => {
     const key = req.body.key;
-    books.search(key, function (error, results) {
+    books.search(key, function(error, results) {
       if (!error) {
         const book = {
           a: results[0],
@@ -153,7 +155,7 @@ module.exports = (db) => {
       const queryString = `INSERT INTO items (title, user_id, category_id, date_added) VALUES ($1, $2, $3, $4);`;
       const queryParams = [title, userId, categoryId, dateAdded];
 
-      db.query(queryString, queryParams).then((data) => {});
+      db.query(queryString, queryParams).then((data) => { });
     });
   });
 
