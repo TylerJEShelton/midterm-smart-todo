@@ -3,7 +3,7 @@
 
 <head>
   <title>Smart ToDo - Registration</title>
-
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
   <!-- External JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
@@ -17,13 +17,15 @@
   <%- include('partials/_header') %>
 
   <main>
-    <h2>Search by keyword</h2>
-      <form action="/items/new" method="POST">
+    <form action="/items/new" method="POST" class="log-reg-form br5">
+    <h3 class="center">Search by keyword</h2>
+      <div>
         <label for="key">Enter Key Word</label>
         <input id="key" type="text" name="key" placeholder="Enter your keyword">
+      </div>
         <button type="submit" class="btn btn-primary">Search</button>
       </form>
-        <table>
+        <table class="center">
           <tr>
             <th width="30%">Books</th>
             <th width="30%">Movies</th>
