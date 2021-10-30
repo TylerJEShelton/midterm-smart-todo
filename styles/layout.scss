@@ -15,7 +15,7 @@ body {
 // Colors ------------
 $darkblue: #215ea3;
 $lightblue: #7eade2;
-$logo-color: #193faf; 
+$logo-color: #193faf;
 $border-color: #5d6f83;
 $link-color: #3f67b5;
 $form-bkg: #f5faff;
@@ -159,6 +159,9 @@ span#loggedin-user{
 
 li.list-row {
   padding: 0.5rem 3px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   &:hover {
     cursor: pointer;
     border: 1px solid $lightblue;
@@ -172,7 +175,7 @@ li.list-row {
   margin: 0 auto;
 }
 //Buttons ------------
-button { 
+button {
   padding: 3px 5px;
   transition: all 0.2s;
   &:hover {
