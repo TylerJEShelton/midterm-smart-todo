@@ -14,10 +14,11 @@ module.exports = (db) => {
 
   router.get("/", (req, res) => {
     let user = null;
+    let error = null;
     if (req.session.first_name) {
       user = { first_name: req.session.first_name };
     }
-    const templateVars = { user };
+    const templateVars = { user, error };
     res.render("register", templateVars);
   });
 
@@ -28,8 +29,14 @@ module.exports = (db) => {
 
     checkEmails(db, email).then((responce) => {
       if (responce.rows[0]) {
-        res.status(400).send("email registered");
+        let user = null;
+        if (req.session.first_name) {
+          user = { first_name: req.session.first_name };
+        }
+        const templateVars = { user: user, error: "email already in use" };
+        res.render("register", templateVars);
         return;
+        // res.status(400).send("email registered");
       }
       if (req.body.email === "") {
         res.status(400).send("email cannot be empty");

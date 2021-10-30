@@ -1,5 +1,13 @@
 $(document).ready(function () {
-
+  //check if error comes from backend and style it
+   if ($(".form-error-div").text().trim() == 0) {
+    $('.form-error-div').removeClass('form-error');
+    console.log("div empty");
+  } else {
+    $('.form-error-div').addClass('form-error');
+    console.log("div Not empty");
+  }
+ 
 // Check for empty input fields in form
 $(".log-reg-form").on("submit", function (e) {
   let isAllInput = true;
@@ -9,7 +17,6 @@ $(".log-reg-form").on("submit", function (e) {
       return;
     }
   });
-
   if (!isAllInput) {
     e.preventDefault();
     $('.form-error-div').addClass('form-error').html("Please fill out all the fields");
@@ -18,7 +25,9 @@ $(".log-reg-form").on("submit", function (e) {
   }
 });
 
+//clear errors on form focus
   $(".log-reg-form input").on("focus", function (e) {
-    $(".form-error").empty().removeClass('form-error');
+    $(".form-error-div").empty().removeClass('form-error');
   });
+
 });
