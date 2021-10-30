@@ -17,7 +17,7 @@ module.exports = (db) => {
 
 
   router.get("/", (req, res) => {
-     
+
     if (req.session.email) {
       let email = req.session.email;
       getUserByEmail(db, email).then((responce) => {
@@ -37,7 +37,7 @@ module.exports = (db) => {
             products: data[3].rows,
             other: data[4].rows,
           };
-          
+
           let user = null;
 
           if (req.session.first_name) {
@@ -80,7 +80,7 @@ module.exports = (db) => {
 
   router.post("/new", (req, res) => {
     const key = req.body.key;
-    books.search(key, function (error, results) {
+    books.search(key, function(error, results) {
       if (!error) {
         const book = {
           a: results[0],
@@ -144,6 +144,6 @@ module.exports = (db) => {
     await deleteItem(db, userId, itemId)
     res.redirect("/items");
   });
-    
+
   return router;
 };

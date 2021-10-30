@@ -54,7 +54,8 @@ a {
 
 //HEADER ----------------
 nav {
-  background: #f5f7fa;
+  background: #eaf2fc;
+  border-radius: 0.4rem;
   border: 5px;
   padding: 1rem 1rem;
   display: flex;
@@ -162,6 +163,9 @@ li.list-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: #eaf2fc;
+  border-radius: 0.4rem;
+  margin-bottom: 0.25rem;
   &:hover {
     cursor: pointer;
     border: 1px solid $lightblue;
