@@ -81,13 +81,19 @@
           </tr>
           <tr>
             <td>
+              <% if (book.a) { %>
                 <button type="submit" class="add-from-result1">Add to ToDo</button>
+              <% } %>
             </td>
             <td>
+              <% if (movie.a) { %>
                 <button type="submit" class="add-from-result2">Add to ToDo</button>
+              <% } %>
             </td>
             <td>
+              <% if (restaurant.a) { %>
                 <button type="submit" class="add-from-result3">Add to ToDo</button>
+              <% } %>
             </td>
           </tr>
         </table>
