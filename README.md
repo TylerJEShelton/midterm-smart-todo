@@ -3,7 +3,7 @@ SMART TODO APP
 
 Smart ToDo is a multi-page app that allows users to track things that they need to do while automatically categorizing those tasks.  The user is then able to switch the category it has been moved to and delete the task when it is complete.  The user is also able to search for a book, movie or restaurant using a keyword and then add one of the results to their list of to-do items.
 
-This app was built by [Andriy] (https://github.com/Andriy-Lyt), [Haoyan] (https://github.com/yuhaoyann) and [Tyler] (https://github.com/TylerJEShelton) as our midterm project for [Lighthouse Labs Web Development Flex Progam] (https://www.lighthouselabs.ca/en/web-development-flex-program).
+This app was built by [Andriy](https://github.com/Andriy-Lyt), [Haoyan](https://github.com/yuhaoyann) and [Tyler](https://github.com/TylerJEShelton) as our midterm project for [Lighthouse Labs Web Development Flex Progam](https://www.lighthouselabs.ca/en/web-development-flex-program).
 
 ## Screenshots
 
